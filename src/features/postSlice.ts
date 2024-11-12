@@ -1,4 +1,4 @@
-// src/features/postsSlice.ts
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface Post {
@@ -19,7 +19,7 @@ const initialState: PostsState = {
   error: null,
 };
 
-// Асинхронный thunk для получения постов
+
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   return response.json();
