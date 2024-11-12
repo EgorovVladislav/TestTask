@@ -1,0 +1,79 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 600px;
+  max-height: 80%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.closeButton {
+  width: 100%;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.closeButton:hover {
+  background-color: #d32f2f;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.commentsContainer {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.comment {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s;
+}
+
+.comment:hover {
+  background-color: #f1f1f1;
+}
+
+.comment h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.comment p {
+  margin: 5px 0;
+}
