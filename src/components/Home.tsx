@@ -4,6 +4,8 @@ import { AppDispatch, RootState } from '../app/store';
 import { fetchPosts } from '../features/postSlice';
 import Modal from './Modal';
 import styles from '../styles/Home.module.css';
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -20,6 +22,7 @@ const Home: React.FC = () => {
     }, [dispatch]);
 
     const handlePostClick = async (id: number) => {
+        setIsModalOpen(true)
         try {
             const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
             if (!postResponse.ok) throw new Error('Failed to fetch post');
@@ -29,10 +32,9 @@ const Home: React.FC = () => {
             if (!commentsResponse.ok) throw new Error('Failed to fetch comments');
             const commentsData = await commentsResponse.json();
             setComments(commentsData);
-            setIsModalOpen(true);
         } catch (error) {
             console.error('Error fetching post or comments:', error);
-            alert(error);
+            toast.error('Ошибка при загрузке поста или комментариев')
         }
     };
 
@@ -47,6 +49,8 @@ const Home: React.FC = () => {
 
     return (
         <div className={styles.container}>
+            <ToastContainer
+                position='top-center' />
             <h1>Posts</h1>
             <div className={styles.containerTable}>
                 {posts.map(post => (

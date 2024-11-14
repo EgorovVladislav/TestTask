@@ -1,4 +1,3 @@
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 interface Post {
@@ -18,7 +17,6 @@ const initialState: PostsState = {
   loading: false,
   error: null,
 };
-
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
